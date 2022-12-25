@@ -16,4 +16,7 @@ class AppUrl{
   static final String confirmQ = "$baseUrl/queue/confirm-queue";
   static final String qToday = "$baseUrl/queue/queue-today";
 
+  //token notification
+  static final String addToken = "$baseUrl/notification/add-token";
+
 }

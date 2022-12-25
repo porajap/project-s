@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "673661411856",
+    "project_id": "flutter-notification-b1db3",
+    "storage_bucket": "flutter-notification-b1db3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673661411856:android:5bd5f9e0bb3f71b5c92095",
+        "android_client_info": {
+          "package_name": "com.example.project_s.project_s"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673661411856-3a9usuna809v3ul2pov2gncud89gfse8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0kvfTz1YKBcP_HlAFXNnK5hp5xVBLzDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673661411856-3a9usuna809v3ul2pov2gncud89gfse8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "673661411856-8j8mq4h0tnkod5hff72m1g98jmphdnmv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smartHospital"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673661411856:android:356041eb6a2e44ddc92095",
+        "android_client_info": {
+          "package_name": "com.example.smart_hospital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673661411856-3a9usuna809v3ul2pov2gncud89gfse8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0kvfTz1YKBcP_HlAFXNnK5hp5xVBLzDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673661411856-3a9usuna809v3ul2pov2gncud89gfse8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "673661411856-8j8mq4h0tnkod5hff72m1g98jmphdnmv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smartHospital"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
