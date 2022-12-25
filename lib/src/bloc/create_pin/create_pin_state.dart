@@ -7,13 +7,13 @@ class CreatePINState {
   final PINStatus pinStatus;
   final String firstPIN;
   final String secondPIN;
-  // LoggedModel? loggedInData = LoggedModel(data: Data());
+  LoggedModel? loggedInData = LoggedModel(user: User());
 
   CreatePINState({
     this.firstPIN = "",
     this.secondPIN = "",
     required this.pinStatus,
-    // this.loggedInData,
+    this.loggedInData,
   });
 
   int getCountsOfPIN() {

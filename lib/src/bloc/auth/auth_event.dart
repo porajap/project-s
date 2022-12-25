@@ -27,3 +27,5 @@ class AuthEventLoggedIn extends AuthEvent {
 }
 
 class AuthEventLoggedOut extends AuthEvent {}
+
+class AuthEventTokenInvalid extends AuthEvent {}

@@ -5,9 +5,12 @@ import 'package:project_s/src/my_app.dart';
 
 import '../../bloc/auth/auth_bloc.dart';
 import '../../bloc/auth_pin/auth_pin_bloc.dart';
+import '../../bloc/create_pin/create_pin_bloc.dart';
 import '../../utils/app_theme.dart';
+import '../../utils/my_dialog.dart';
 import '../components/button_of_numpad.dart';
 import '../components/pin_sphere.dart';
+import '../home/home_page.dart';
 
 class AuthPIN extends StatefulWidget {
   const AuthPIN({Key? key}) : super(key: key);
@@ -17,6 +20,10 @@ class AuthPIN extends StatefulWidget {
 }
 
 class _AuthPINState extends State<AuthPIN> {
+  static const String pinCreated = "Your PIN code is successfully";
+  static const String pinNonCreated = "Pin codes do not match";
+  static const String ok = "OK";
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -36,7 +43,6 @@ class _AuthPINState extends State<AuthPIN> {
       ),
     );
   }
-
 }
 
 class _NumPad extends StatelessWidget {

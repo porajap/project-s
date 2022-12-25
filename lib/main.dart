@@ -24,7 +24,7 @@ void main() async {
               create: (_) => AuthPinBloc(authenticationBloc: BlocProvider.of<AuthBloc>(_)),
             ),
             BlocProvider<CreatePINBloc>(
-              create: (_) => CreatePINBloc(),
+              create: (_) => CreatePINBloc(authenticationBloc: BlocProvider.of<AuthBloc>(_)),
             ),
           ],
           child: MyApp(),

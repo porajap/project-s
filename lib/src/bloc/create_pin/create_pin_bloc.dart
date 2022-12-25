@@ -3,19 +3,22 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../models/logged_model.dart';
+import '../../services/auth.dart';
+import '../auth/auth_bloc.dart';
+
 part 'create_pin_event.dart';
 
 part 'create_pin_state.dart';
 
 class CreatePINBloc extends Bloc<CreatePINEvent, CreatePINState> {
-  // AuthBloc? authenticationBloc;
-  // final authService = AuthService();
+  AuthBloc? authenticationBloc;
+  final authService = AuthService();
 
-  CreatePINBloc()
-      : super(CreatePINState(
-          pinStatus: PINStatus.enterFirst,
-          // loggedInData: LoggedModel(data: Data()),
-        )) {
+  CreatePINBloc({required this.authenticationBloc})
+      : super(
+          CreatePINState(pinStatus: PINStatus.enterFirst, loggedInData: LoggedModel(user: User())),
+        ) {
     on<CreatePINAddEvent>(_onEventAdd);
     on<CreatePINEraseEvent>(_onErase);
     on<CreateNullPINEvent>((event, emit) {
@@ -23,7 +26,7 @@ class CreatePINBloc extends Bloc<CreatePINEvent, CreatePINState> {
     });
   }
 
-  FutureOr<void> _onErase(event, emit) async{
+  FutureOr<void> _onErase(event, emit) async {
     if (state.firstPIN.isEmpty) {
       emit(CreatePINState(pinStatus: PINStatus.enterFirst));
     } else if (state.firstPIN.length < 4) {
@@ -50,9 +53,8 @@ class CreatePINBloc extends Bloc<CreatePINEvent, CreatePINState> {
       if (secondPIN.length < 4) {
         emit(state.copyWith(secondPIN: secondPIN, pinStatus: PINStatus.enterSecond));
       } else if (secondPIN == state.firstPIN) {
-        // var _result = await authService.createPin(pin: secondPIN);
-
-        // emit(CreatePINState(secondPIN: secondPIN, pinStatus: PINStatus.equals, loggedInData: _result));
+        var _result = await authService.createPassword(password: secondPIN);
+        emit(CreatePINState(secondPIN: secondPIN, pinStatus: PINStatus.equals, loggedInData: _result));
       } else {
         emit(state.copyWith(secondPIN: secondPIN, pinStatus: PINStatus.unequals));
       }

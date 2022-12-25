@@ -64,5 +64,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthStateUnauthenticated(showAlert: true, message: _message));
       }
     });
+
+    on<AuthEventTokenInvalid>((event, emit) async {
+      emit(AuthStateLoading());
+      await authService.logout();
+      emit(AuthStateTokenInvalid());
+    });
   }
 }

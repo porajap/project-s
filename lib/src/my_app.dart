@@ -62,6 +62,15 @@ class _MyAppState extends State<MyApp> {
           builder: (context, state) {
             BotToast.closeAllLoading();
 
+            if (state is AuthStateTokenInvalid) {
+              BotToast.showText(text: "Token invalid");
+
+              WidgetsBinding.instance
+                  .addPostFrameCallback((_) => Navigator.popUntil(context, (route) => route.isFirst));
+
+              return LoginPage();
+            }
+
             if(state is AuthStateCheckPhone){
 
               var _res = state.res;

@@ -1,11 +1,14 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_s/src/bloc/auth/auth_bloc.dart';
 
 import '../../bloc/create_pin/create_pin_bloc.dart';
 import '../../utils/app_theme.dart';
 import '../../utils/my_dialog.dart';
 import '../components/button_of_numpad.dart';
 import '../components/pin_sphere.dart';
+import '../home/home_page.dart';
 
 class CreatePIN extends StatefulWidget {
   const CreatePIN({Key? key}) : super(key: key);
@@ -26,22 +29,8 @@ class _CreatePINState extends State<CreatePIN> {
       child: BlocListener<CreatePINBloc, CreatePINState>(
         listener: (context, state) {
           if (state.pinStatus == PINStatus.equals) {
-
-            MyDialog.dialogCustom(
-              context: context,
-              callback: () {
-                // Navigator.pushAndRemoveUntil(
-                //   context,
-                //   MaterialPageRoute<void>(
-                //     builder: (_) => HomePage(),
-                //   ),
-                //       (_) => false,
-                // );
-              },
-              title: pinCreated,
-              msg: '',
-              cancelText: ok,
-            );
+            BotToast.showText(text: "$pinCreated");
+            context.read<AuthBloc>().add(AuthEventAppStart());
           } else if (state.pinStatus == PINStatus.unequals) {
             MyDialog.dialogCustom(
               title: pinNonCreated,

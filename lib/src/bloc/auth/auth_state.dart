@@ -37,4 +37,4 @@ class AuthStateCheckPhone extends AuthState {
 
 class AuthStatePINUnEqual extends AuthState{}
 
-class AuthEventTokenInvalid extends AuthEvent {}
+class AuthStateTokenInvalid extends AuthState {}
