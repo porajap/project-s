@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       navigatorKey: NavigationService.navigatorKey,
       title: '${Constants.appName}',
-      theme: AppTheme.primaryTheme,
+      theme: AppTheme().lightTheme,
       builder: BotToastInit(),
       navigatorObservers: [BotToastNavigatorObserver()],
       home: BlocListener<AuthBloc, AuthState>(
@@ -55,7 +55,6 @@ class _MyAppState extends State<MyApp> {
             if (state is AuthStatePINUnEqual) {
               BotToast.showText(text: "PIN is invalid");
             }
-
           }
         },
         child: BlocBuilder<AuthBloc, AuthState>(
@@ -65,23 +64,21 @@ class _MyAppState extends State<MyApp> {
             if (state is AuthStateTokenInvalid) {
               BotToast.showText(text: "Token invalid");
 
-              WidgetsBinding.instance
-                  .addPostFrameCallback((_) => Navigator.popUntil(context, (route) => route.isFirst));
+              WidgetsBinding.instance.addPostFrameCallback((_) => Navigator.popUntil(context, (route) => route.isFirst));
 
               return LoginPage();
             }
 
-            if(state is AuthStateCheckPhone){
-
+            if (state is AuthStateCheckPhone) {
               var _res = state.res;
               bool _error = _res.error ?? false;
               bool _firstLogin = _res.firstLogin ?? false;
               context.read<AuthPinBloc>().add(AuthNullPINEvent());
 
-              if(!_error){
-                if(_firstLogin){
+              if (!_error) {
+                if (_firstLogin) {
                   return CreatePIN();
-                }else{
+                } else {
                   return AuthPIN();
                 }
               }

@@ -54,7 +54,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
           onSelected: menuOnSelect,
           icon: Icon(
             Icons.more_vert,
-            color: AppColor.whiteColor,
+            color: AppColor.write,
             size: 24,
           ),
           itemBuilder: (BuildContext context) => [...buildPopupMenuItems()],
@@ -70,7 +70,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
         child: buildMenuItem(
           title: "ออกจากระบบ",
           icon: Icons.logout_rounded,
-          color: AppColor.errorColor,
+          color: AppColor.error,
         ),
       ),
     ];

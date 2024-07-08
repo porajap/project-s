@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
           preferredSize: Size(0, 0),
           child: AppBar(
             systemOverlayStyle: SystemUiOverlayStyle(
-              statusBarColor: AppColor.whiteColor,
+              statusBarColor: AppColor.write,
               statusBarIconBrightness: Brightness.dark,
             ),
           ),
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         bottomNavigationBar: Container(
-          color: AppColor.whiteColor,
+          color: AppColor.write,
           child: Image.asset("${Constants.imageUrl}/login_bg.png"),
         ),
       ),

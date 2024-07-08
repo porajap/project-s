@@ -217,7 +217,7 @@ class _MainPart extends StatelessWidget {
               flex: 2,
               child: Text(
                 enterYourPIN,
-                style: TextStyle(color: AppColor.textPrimaryColor, fontSize: 36),
+                style: TextStyle(color: AppColor.title, fontSize: 36),
               ),
             ),
             Flexible(

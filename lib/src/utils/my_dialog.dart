@@ -26,12 +26,12 @@ class MyDialog {
             children: [
               Text(
                 "$title",
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               SizedBox(height: 10),
               Text(
                 '$msg',
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(height: 10),
               Padding(
@@ -41,10 +41,9 @@ class MyDialog {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () => Navigator.pop(context),
-                        style: ElevatedButton.styleFrom(primary: AppColor.grayColor, elevation: 0),
                         child: Text(
                           cancelText ?? Constants.textCancel,
-                          style: TextStyle(color: AppColor.textPrimaryColor.withOpacity(0.7)),
+                          style: TextStyle(color: AppColor.primary.withOpacity(0.7)),
                         ),
                       ),
                     ),
@@ -73,10 +72,9 @@ class MyDialog {
     String? cancelText,
     Function? callback,
   }) {
-
     var callBackOnConfirm = () {
       Navigator.pop(context);
-      if(callback != null){
+      if (callback != null) {
         callback();
       }
     };
@@ -93,22 +91,21 @@ class MyDialog {
             children: [
               Text(
                 "$title",
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               SizedBox(height: 10),
               Text(
                 '$msg',
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(height: 10),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ElevatedButton(
                   onPressed: callBackOnConfirm,
-                  style: ElevatedButton.styleFrom(primary: AppColor.grayColor, elevation: 0),
                   child: Text(
                     "${cancelText ?? Constants.textClose}",
-                    style: TextStyle(color: AppColor.textPrimaryColor.withOpacity(0.7)),
+                    style: TextStyle(color: AppColor.title.withOpacity(0.7)),
                   ),
                 ),
               ),

@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
       return;
     }
 
-    if(timer == null){
+    if (timer == null) {
       timerQ();
     }
     setState(() {});
@@ -85,7 +85,6 @@ class _HomePageState extends State<HomePage> {
       }
 
       setState(() {});
-
     }
 
     BotToast.closeAllLoading();
@@ -133,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Image.asset("${Constants.imageUrl}/home_qr.png", width: 180),
                             SizedBox(height: 20),
-                            Text("ไม่พบข้อมูล", style: Theme.of(context).textTheme.headline1),
+                            Text("ไม่พบข้อมูล", style: Theme.of(context).textTheme.headlineMedium),
                             SizedBox(height: 5),
                             Text("สแกนคิวอาร์โค้ดเพื่อดูรายละเอียด"),
                           ],
@@ -175,7 +174,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Image.asset("${Constants.imageUrl}/home_qr.png", width: 180),
           SizedBox(height: 20),
-          Text("ไม่พบข้อมูล", style: Theme.of(context).textTheme.headline1),
+          Text("ไม่พบข้อมูล", style: Theme.of(context).textTheme.headlineMedium),
         ],
       ),
     );
@@ -220,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         "${_roomName}",
                         style: TextStyle(
-                          color: AppColor.whiteColor,
+                          color: AppColor.write,
                           fontSize: 24,
                         ),
                       ),
@@ -230,18 +229,17 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: Container(
                               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                              decoration:
-                                  BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.successColor),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.success),
                               child: Column(
                                 children: [
                                   Text(
                                     "$_queueOfRoom",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 32),
+                                    style: TextStyle(color: AppColor.write, fontSize: 32),
                                   ),
                                   SizedBox(height: 20),
                                   Text(
                                     "คิวของคุณ",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 16),
+                                    style: TextStyle(color: AppColor.write, fontSize: 16),
                                   ),
                                 ],
                               ),
@@ -251,18 +249,17 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: Container(
                               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                              decoration:
-                                  BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.successColor),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.success),
                               child: Column(
                                 children: [
                                   Text(
                                     "$_queueOfFront",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 32),
+                                    style: TextStyle(color: AppColor.write, fontSize: 32),
                                   ),
                                   SizedBox(height: 20),
                                   Text(
                                     "มีคิวก่อนหน้า",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 16),
+                                    style: TextStyle(color: AppColor.write, fontSize: 16),
                                   ),
                                 ],
                               ),
@@ -313,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                 Container(padding: EdgeInsets.symmetric(vertical: 10), child: Divider()),
                 dataDetail(title: "รหัสผู้ป่วย", detail: "$_queueNo"),
                 Container(padding: EdgeInsets.symmetric(vertical: 10), child: Divider()),
-                dataDetail(title: "หมายเลข HN", detail: "$_hnCode", detailColor: AppColor.primaryColor),
+                dataDetail(title: "หมายเลข HN", detail: "$_hnCode", detailColor: AppColor.primary),
                 Container(padding: EdgeInsets.symmetric(vertical: 10), child: Divider()),
                 dataDetail(title: "ประเภทผู้ป่วย", detail: "$_userType"),
                 Container(padding: EdgeInsets.symmetric(vertical: 10), child: Divider()),
@@ -400,7 +397,7 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         "ช่องบริการ",
                         style: TextStyle(
-                          color: AppColor.whiteColor,
+                          color: AppColor.write,
                           fontSize: 24,
                         ),
                       ),
@@ -410,18 +407,17 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: Container(
                               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                              decoration:
-                                  BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.successColor),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.success),
                               child: Column(
                                 children: [
                                   Text(
                                     "$_queueOfRoom",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 32),
+                                    style: TextStyle(color: AppColor.write, fontSize: 32),
                                   ),
                                   SizedBox(height: 20),
                                   Text(
                                     "คิวของคุณ",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 16),
+                                    style: TextStyle(color: AppColor.write, fontSize: 16),
                                   ),
                                 ],
                               ),
@@ -431,18 +427,17 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: Container(
                               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                              decoration:
-                                  BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.successColor),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColor.success),
                               child: Column(
                                 children: [
                                   Text(
                                     "$_queueOfFront",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 32),
+                                    style: TextStyle(color: AppColor.write, fontSize: 32),
                                   ),
                                   SizedBox(height: 20),
                                   Text(
                                     "มีคิวก่อนหน้า",
-                                    style: TextStyle(color: AppColor.whiteColor, fontSize: 16),
+                                    style: TextStyle(color: AppColor.write, fontSize: 16),
                                   ),
                                 ],
                               ),
@@ -463,7 +458,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget dataDetail({required String title, required String detail, Color? detailColor}) {
-    detailColor = detailColor ?? AppColor.textPrimaryColor;
+    detailColor = detailColor ?? AppColor.title;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -487,8 +482,7 @@ class _HomePageState extends State<HomePage> {
 
       var _organizeId = registerSelected.organizeId ?? 0;
 
-      ResponseModel _result =
-          await homeService.confirmQ(organizeId: _organizeId, qId: _qId, qNumber: _qNumber, roomId: _roomId);
+      ResponseModel _result = await homeService.confirmQ(organizeId: _organizeId, qId: _qId, qNumber: _qNumber, roomId: _roomId);
       bool _error = _result.error ?? false;
 
       if (!_error) {

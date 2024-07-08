@@ -59,7 +59,6 @@ class _CreatePINState extends State<CreatePIN> {
       ),
     );
   }
-
 }
 
 class _NumPad extends StatelessWidget {
@@ -227,7 +226,7 @@ class _MainPart extends StatelessWidget {
               flex: 2,
               child: Text(
                 state.pinStatus == PINStatus.enterFirst ? createPIN : reEnterYourPIN,
-                style: TextStyle(color: AppColor.textPrimaryColor, fontSize: 36),
+                style: TextStyle(color: AppColor.title, fontSize: 36),
               ),
             ),
             Flexible(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 import '../../bloc/auth/auth_bloc.dart';
 import '../../my_app.dart';
 import '../../utils/app_theme.dart';
@@ -35,20 +34,23 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             SizedBox(height: 50),
             Container(
-              child: Image.asset("${Constants.imageUrl}/logo.png", width: 180,),
+              child: Image.asset(
+                "${Constants.imageUrl}/logo.png",
+                width: 180,
+              ),
             ),
             SizedBox(height: 50),
             Column(
               children: [
-                Text("กรอกเบอร์โทรศัพท์ของคุณ", style: TextStyle(color: AppColor.textPrimaryColor, fontWeight: FontWeight.bold),),
+                Text(
+                  "กรอกเบอร์โทรศัพท์ของคุณ",
+                  style: TextStyle(color: AppColor.title, fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 10),
                 TextFormField(
                   controller: _phoneController,
                   keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(
-                    suffixIcon: SizedBox(),
-                    hintText: "0123456780"
-                  ),
+                  decoration: InputDecoration(suffixIcon: SizedBox(), hintText: "0123456780"),
                   validator: (value) {
                     if (value == null || value.trim().length == 0) {
                       return 'กรุณากรอกเบอร์มือถือ';
@@ -83,9 +85,8 @@ class _LoginFormState extends State<LoginForm> {
       );
 
   Future<void> login() async {
-    if(_formKey.currentState!.validate()){
+    if (_formKey.currentState!.validate()) {
       context.read<AuthBloc>().add(AuthEventCheckPhone(phone: _phoneController.text.trim()));
     }
   }
-
 }
