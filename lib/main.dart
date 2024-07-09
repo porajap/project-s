@@ -19,6 +19,7 @@ PushNotificationService pushNotificationService = PushNotificationService();
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
@@ -28,26 +29,21 @@ void main() async {
     await pushNotificationService.setupFlutterNotifications();
   }
 
-  BlocOverrides.runZoned(
-    () {
-      runApp(
-        MultiBlocProvider(
-          providers: [
-            BlocProvider<AuthBloc>(
-              create: (_) => AuthBloc()..add(AuthEventAppStart()),
-            ),
-            BlocProvider<AuthPinBloc>(
-              create: (_) => AuthPinBloc(authenticationBloc: BlocProvider.of<AuthBloc>(_)),
-            ),
-            BlocProvider<CreatePINBloc>(
-              create: (_) => CreatePINBloc(authenticationBloc: BlocProvider.of<AuthBloc>(_)),
-            ),
-          ],
-          child: MyApp(),
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (_) => AuthBloc()..add(AuthEventAppStart()),
         ),
-      );
-    },
-    blocObserver: SimpleBlocObserver(),
+        BlocProvider<AuthPinBloc>(
+          create: (_) => AuthPinBloc(authenticationBloc: BlocProvider.of<AuthBloc>(_)),
+        ),
+        BlocProvider<CreatePINBloc>(
+          create: (_) => CreatePINBloc(authenticationBloc: BlocProvider.of<AuthBloc>(_)),
+        ),
+      ],
+      child: MyApp(),
+    ),
   );
 }
 
@@ -61,7 +57,6 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
-    return super.createHttpClient(context)
-      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+    return super.createHttpClient(context)..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   }
 }

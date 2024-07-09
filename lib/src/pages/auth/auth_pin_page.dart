@@ -176,7 +176,7 @@ class _NumPad extends StatelessWidget {
                       child: ButtonOfNumPad(
                         num: '0',
                         onPressed: () {
-                          context.read<AuthPinBloc>().add(AuthPinAddEvent(pinNum: 10));
+                          context.read<AuthPinBloc>().add(AuthPinAddEvent(pinNum: 0));
                         },
                       ),
                     ),

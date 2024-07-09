@@ -2,7 +2,7 @@ class AppUrl{
   static final String devUrl = "http://192.168.1.107:4000/api";
   static final String productionUrl = "https://re-loader.com/api_smarthospital/app/api";
 
-  static final String baseUrl = devUrl;
+  static final String baseUrl = productionUrl;
 
   //auth
   static final String checkPhone = "$baseUrl/auth/check-phone";

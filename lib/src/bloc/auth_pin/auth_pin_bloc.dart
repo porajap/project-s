@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:project_s/src/my_app.dart';
 
 import '../auth/auth_bloc.dart';
 
@@ -15,6 +16,9 @@ class AuthPinBloc extends Bloc<AuthPinEvent, AuthPinState> {
   AuthPinBloc({required this.authenticationBloc}) : super(const AuthPinState(pinStatus: AuthPINStatus.enterPIN)) {
     on<AuthPinAddEvent>((event, emit) async {
       String pin = "${state.pin}${event.pinNum}";
+
+      logger.w(event.pinNum);
+
       if (pin.length < 4) {
         emit(AuthPinState(pin: pin, pinStatus: AuthPINStatus.enterPIN));
       } else {

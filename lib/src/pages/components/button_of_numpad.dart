@@ -14,7 +14,7 @@ class ButtonOfNumPad extends StatelessWidget {
       child: FloatingActionButton.extended(
         elevation: 0,
         heroTag: num,
-        backgroundColor: AppColor.gray,
+        backgroundColor: AppColor.subTitle.withOpacity(0.5),
         onPressed: onPressed,
         label: Text(
           "$num",
